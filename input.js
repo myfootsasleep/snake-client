@@ -12,6 +12,18 @@ const handleUserInput = function(key) {
     // console.log("successfully exit");
     process.exit();
   }
+  if (key === "w") {
+    console.log("moving up");
+  }
+  if (key === "a") {
+    console.log("moving left");
+  }
+  if (key === "s") {
+    console.log("moving down");
+  }
+  if (key === "d") {
+    console.log("moving right");
+  }
 };
 
 module.exports = {setupInput};
