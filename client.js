@@ -11,12 +11,6 @@ const connect = function() {
   conn.on("connect", () => {
     conn.write("Name: SNK");
   });
-  // Just a test to see what happens when we move up via timeOut or setInterval
-  // conn.on("connect", () =>{
-  //   setInterval(() => {
-  //     conn.write("Move: up")
-  //   },50);
-  // });
   conn.on("data", (data) => {
     console.log(data);
   });
