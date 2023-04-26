@@ -12,27 +12,17 @@ const setupInput = (conn) => {
   return stdin;
 };
 
+//the block of code used for the keyboard input
 const handleUserInput = function(key) {
   if (key === '\u0003') {
+    //console logged that we were able to use the Ctrl + C keystroke
     console.log("successfully exit");
     process.exit();
     return;
   }
+  //keyboard input in object keys rather than if statements
   const messages = {w: MOVEUP, a: MOVELEFT, s: MOVEDOWN, d: MOVERIGHT, q: TAUNT1, e: TAUNT2};
   connection.write(messages[key]);
-  // } else if (key === "w") {
-  //   connection.write(MOVEUP);
-  // } else if (key === "a") {
-  //   connection.write(MOVELEFT);
-  // } else if (key === "s") {
-  //   connection.write(MOVEDOWN);
-  // } else if (key === "d") {
-  //   connection.write(MOVERIGHT);
-  // } else if (key === "q") {
-  //   connection.write(TAUNT1);
-  // } else if (key === "e") {
-  //   connection.write(TAUNT2);
-  // }
 };
 
 module.exports = {setupInput};

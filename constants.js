@@ -1,3 +1,4 @@
+//module for all the const that might be used
 const IP = ("localhost");
 const PORT = 50541;
 const MOVEUP = ("Move: up");

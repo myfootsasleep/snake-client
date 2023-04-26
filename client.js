@@ -4,11 +4,12 @@ const connect = function() {
   const conn = net.createConnection({
     host: IP,
     port: PORT
-
   });
+  //On connection success to the game server
   conn.on("connect",()=>{
     console.log("Yay! You connected");
   });
+  //Changes the name of the snake on connection
   conn.on("connect", () => {
     conn.write("Name: SNK");
   });
@@ -19,8 +20,6 @@ const connect = function() {
   //interpret incoming data as text
   conn.setEncoding("utf8");
   return conn;
-
-
 };
 
 module.exports = {connect};
