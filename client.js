@@ -1,7 +1,7 @@
 const net = require("net");
 const connect = function() {
   const conn = net.createConnection({
-    host: ('172.18.104.166'),
+    host: ('localhost'),
     port: 50541
 
   });

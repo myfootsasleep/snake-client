@@ -1,4 +1,8 @@
-const setupInput = function() {
+//Stores the active TCP connection object.
+let connection;
+
+const setupInput = (conn) => {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -13,16 +17,16 @@ const handleUserInput = function(key) {
     process.exit();
   }
   if (key === "w") {
-    console.log("moving up");
+    connection.write("Move: up");
   }
   if (key === "a") {
-    console.log("moving left");
+    connection.write("Move: left");
   }
   if (key === "s") {
-    console.log("moving down");
+    connection.write("Move: down");
   }
   if (key === "d") {
-    console.log("moving right");
+    connection.write("Move: right");
   }
 };
 
