@@ -1,5 +1,6 @@
 //Stores the active TCP connection object.
 let connection;
+const {MOVEUP, MOVELEFT, MOVEDOWN, MOVERIGHT, TAUNT1, TAUNT2,} = require("./constants");
 
 const setupInput = (conn) => {
   connection = conn;
@@ -13,27 +14,25 @@ const setupInput = (conn) => {
 
 const handleUserInput = function(key) {
   if (key === '\u0003') {
-    // console.log("successfully exit");
+    console.log("successfully exit");
     process.exit();
+    return;
   }
-  else if (key === "w") {
-    connection.write("Move: up");
-  }
-  else if (key === "a") {
-    connection.write("Move: left");
-  }
-  else if (key === "s") {
-    connection.write("Move: down");
-  }
-  else if (key === "d") {
-    connection.write("Move: right");
-  }
-  else if (key === "q") {
-    connection.write("Say: Hehe!");
-  }
-  else if (key === "e") {
-    connection.write("Say: I will beat you!");
-  }
+  const messages = {w: MOVEUP, a: MOVELEFT, s: MOVEDOWN, d: MOVERIGHT, q: TAUNT1, e: TAUNT2};
+  connection.write(messages[key]);
+  // } else if (key === "w") {
+  //   connection.write(MOVEUP);
+  // } else if (key === "a") {
+  //   connection.write(MOVELEFT);
+  // } else if (key === "s") {
+  //   connection.write(MOVEDOWN);
+  // } else if (key === "d") {
+  //   connection.write(MOVERIGHT);
+  // } else if (key === "q") {
+  //   connection.write(TAUNT1);
+  // } else if (key === "e") {
+  //   connection.write(TAUNT2);
+  // }
 };
 
 module.exports = {setupInput};
